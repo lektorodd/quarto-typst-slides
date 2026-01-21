@@ -116,7 +116,6 @@ $endif$
 
 // Make each level 1 heading start a new slide
 #show heading.where(level: 1): it => {
-  pagebreak(weak: false)
   v(2em)
   block[
     #text(
