@@ -101,12 +101,20 @@ quarto render document.qmd
 _extensions/
   typst-slides/
     _extension.yml       # Extension metadata
-    typst-slides.typ     # Typst template
+    typst-template.typ   # Pure Typst template function
+    typst-show.typ       # Maps Pandoc metadata to template
 ```
 
 ## How It Works
 
-The extension uses native Typst with:
+The extension follows Quarto's recommended two-file structure:
+
+1. **`typst-template.typ`**: Pure Typst code defining a `slides()` function with parameters for title, colors, fonts, etc.
+2. **`typst-show.typ`**: Maps Quarto/Pandoc metadata (YAML frontmatter and `_brand.yml`) to the template function parameters
+
+This separation keeps the Typst code clean and makes the template more maintainable and reusable.
+
+Features:
 - `paper: "presentation-16-9"` for slide format
 - Custom heading styles that create pagebreaks
 - Simple, clean design with no external dependencies
@@ -163,13 +171,16 @@ See the included `_brand.yml` for a complete example.
 
 ### Manual Customization
 
-You can also edit `_extensions/typst-slides/typst-slides.typ` directly.
+You can also edit `_extensions/typst-slides/typst-template.typ` directly to change the template function's default parameters.
 
 Default colors (if no brand file):
 - Primary (headings): `#1a5490` (blue)
 - Accent: `#D85A5A` (coral)
 - Text: Black
+- Links: `#0066cc` (blue)
 - Code background: `#f5f5f5` (light gray)
+
+The template is a pure Typst function, making it easy to customize and reuse.
 
 ## License
 
