@@ -46,6 +46,8 @@ format:
 ---
 ```
 
+**Slide Structure**: In the `typst-slides` format, each level 1 heading (`#`) creates a new slide. Content between headings appears on the same slide. Use level 2 and 3 headings for subsections within slides.
+
 ### Conditional Content
 
 Use fenced divs to control what appears in each format:

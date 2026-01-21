@@ -76,7 +76,7 @@ $else$
 #let highlight-bg = rgb("#FEF3C7")
 $endif$
 
-// Configure the document
+// Configure Polylux
 #set page(
   paper: "presentation-16-9",
   margin: (x: 2em, y: 2em),
@@ -89,24 +89,6 @@ $endif$
 )
 
 #set par(justify: true)
-
-#show heading.where(level: 1): set text(
-  font: heading-font,
-  size: 32pt,
-  fill: primary-color,
-)
-
-#show heading.where(level: 2): set text(
-  font: heading-font,
-  size: 28pt,
-  fill: primary-color,
-)
-
-#show heading.where(level: 3): set text(
-  font: heading-font,
-  size: 24pt,
-  fill: text-secondary,
-)
 
 #show raw: set text(
   font: mono-font,
@@ -128,9 +110,50 @@ $endif$
 // Strong text uses accent color for emphasis
 #show strong: set text(fill: accent-color)
 
-// Configure Polylux
+// Make each level 1 heading start a new slide
+#show heading.where(level: 1): it => {
+  pagebreak(weak: false)
+  v(2em)
+  block[
+    #text(
+      font: heading-font,
+      size: 32pt,
+      fill: primary-color,
+      weight: "bold",
+      it.body
+    )
+  ]
+  v(1em)
+}
+
+#show heading.where(level: 2): it => {
+  v(1em)
+  block[
+    #text(
+      font: heading-font,
+      size: 28pt,
+      fill: primary-color,
+      it.body
+    )
+  ]
+  v(0.5em)
+}
+
+#show heading.where(level: 3): it => {
+  v(0.75em)
+  block[
+    #text(
+      font: heading-font,
+      size: 24pt,
+      fill: text-secondary,
+      it.body
+    )
+  ]
+  v(0.5em)
+}
+
+// Title slide
 #polylux-slide(
-  // Title slide
   align(horizon + center)[
     $if(title)$
     #text(size: 40pt, font: heading-font, fill: primary-color, weight: "bold")[$title$]
