@@ -1,0 +1,15 @@
+---
+title: "My Presentation"
+author: "Your Name"
+format:
+  typst-slides: default
+  typst-doc: default
+---
+
+# Test slide
+
+$P(A \cap B) = P(A) \cdot P(B)$
+
+# TEst new slide
+
+$P(A \cup B) = P(A) + P(B) - P(A \cap B)$
