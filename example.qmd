@@ -1,0 +1,135 @@
+---
+title: "My Presentation Title"
+subtitle: "An Example Presentation"
+author: "Your Name"
+date: "2026-01-21"
+institute: "Your Institution"
+format:
+  typst-slides: default
+  typst-doc: default
+abstract: |
+  This is an example abstract that will appear in the document version
+  but not in the slides. It provides a summary of the content.
+---
+
+# Introduction
+
+This content appears in both slides and documents.
+
+::: {.slides-only}
+- Bullet points for slides
+- Keep it concise
+- Visual focus
+:::
+
+::: {.doc-only}
+This is a detailed explanation that only appears in the document version.
+It provides additional context, references, and in-depth analysis that
+would be too verbose for slides but is essential for the written document.
+
+You can include longer paragraphs, detailed explanations, and comprehensive
+discussions here without worrying about cluttering your presentation.
+:::
+
+# Main Content
+
+## Key Points
+
+Here's some content that appears in both formats:
+
+- Point 1: Universal content
+- Point 2: Works everywhere
+- Point 3: Shared information
+
+::: {.slides-only}
+**Remember**: Focus on visuals during presentation!
+:::
+
+::: {.doc-only}
+**Note**: The document version can include additional references, footnotes,
+and detailed explanations. For instance, you might want to cite sources here
+(Smith et al., 2024) or provide mathematical derivations that would be too
+complex for a slide presentation.
+:::
+
+## Code Example
+
+Here's some code that appears in both:
+
+```python
+def hello_world():
+    print("Hello, World!")
+    return True
+```
+
+::: {.doc-only}
+### Detailed Code Explanation
+
+In the document version, we can provide a detailed explanation of the code:
+
+1. The function `hello_world()` takes no parameters
+2. It prints a greeting message to stdout
+3. It returns a boolean value `True` to indicate success
+
+This level of detail is appropriate for documentation but would be excessive
+for a presentation slide.
+:::
+
+# Results
+
+## Findings
+
+::: {.slides-only}
+**Key Result**: 95% success rate!
+
+_Quick takeaway for slides_
+:::
+
+::: {.doc-only}
+### Detailed Analysis of Results
+
+Our comprehensive study revealed a 95% success rate across all experimental
+conditions. This section provides detailed statistical analysis, methodology
+notes, and discusses potential confounding variables.
+
+**Table 1**: Detailed results by condition
+
+| Condition | Success Rate | N | p-value |
+|-----------|-------------|---|---------|
+| A | 93% | 100 | < 0.001 |
+| B | 97% | 100 | < 0.001 |
+| C | 95% | 100 | < 0.001 |
+
+These results suggest strong evidence for our hypothesis, with all conditions
+showing statistically significant improvements over baseline.
+:::
+
+# Conclusion
+
+::: {.slides-only}
+## Thank You!
+
+- Questions?
+- Contact: your.email@example.com
+:::
+
+::: {.doc-only}
+## Concluding Remarks
+
+This document has presented a comprehensive analysis of the topic. We have
+demonstrated the utility of conditional content in creating both presentation
+slides and detailed documentation from a single source file.
+
+### Future Work
+
+Future research should investigate:
+
+1. Extended applications of this approach
+2. Integration with other documentation systems
+3. Automated content transformation pipelines
+
+### Acknowledgments
+
+We thank all contributors and reviewers for their valuable feedback and
+suggestions that improved this work.
+:::

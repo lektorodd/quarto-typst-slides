@@ -1,0 +1,16 @@
+typography:
+  fonts:
+    - family: Roboto Slab
+      source: google
+    - family: JetBrains Mono
+      source: google
+    - family: Source Sans 3
+      source: google
+
+  base: Source Sans 3
+  headings: Roboto Slab
+  monospace: JetBrains Mono
+
+color:
+  primary: "#1f77b4"
+  secondary: "#555555"
