@@ -8,9 +8,7 @@ contributes:
       filters:
         - conditional-content.lua
       template: typst-slides.typ
-      output-suffix: "-slides"
     typst-doc:
       filters:
         - conditional-content.lua
       template: typst-doc.typ
-      output-suffix: "-doc"

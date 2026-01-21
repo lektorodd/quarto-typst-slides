@@ -51,24 +51,24 @@ function Span(span)
 end
 
 -- Wrap sections in Polylux slides for slides format
-function Blocks(blocks)
+function Pandoc(doc)
   if not is_slides then
-    return blocks
+    return doc
   end
 
   local result = {}
   local current_slide = {}
 
-  for _, block in ipairs(blocks) do
+  for _, block in ipairs(doc.blocks) do
     if block.t == 'Header' and block.level == 1 then
       -- Close previous slide if it has content
       if #current_slide > 0 then
         -- Wrap in polylux-slide
-        table.insert(result, pandoc.RawBlock('typst', '#polylux-slide['))
+        table.insert(result, pandoc.RawBlock('typst', '#polylux-slide[\n'))
         for _, b in ipairs(current_slide) do
           table.insert(result, b)
         end
-        table.insert(result, pandoc.RawBlock('typst', ']\n'))
+        table.insert(result, pandoc.RawBlock('typst', ']\n\n'))
         current_slide = {}
       end
 
@@ -82,18 +82,18 @@ function Blocks(blocks)
 
   -- Close final slide if it has content
   if #current_slide > 0 then
-    table.insert(result, pandoc.RawBlock('typst', '#polylux-slide['))
+    table.insert(result, pandoc.RawBlock('typst', '#polylux-slide[\n'))
     for _, b in ipairs(current_slide) do
       table.insert(result, b)
     end
     table.insert(result, pandoc.RawBlock('typst', ']\n'))
   end
 
-  return result
+  return pandoc.Pandoc(result, doc.meta)
 end
 
 return {
   {Meta = Meta},
   {Div = Div, Span = Span},
-  {Blocks = Blocks}
+  {Pandoc = Pandoc}
 }

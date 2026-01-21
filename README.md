@@ -36,14 +36,28 @@ quarto install extension .
 
 In your QMD file's YAML header, specify one or both formats:
 
+**IMPORTANT**: When rendering both formats, you **must** specify different `output-file` names to avoid them overwriting each other (both produce PDF files):
+
 ```yaml
 ---
 title: "My Presentation"
 author: "Your Name"
 format:
-  typst-slides: default
-  typst-doc: default
+  typst-slides:
+    output-file: my-presentation-slides
+  typst-doc:
+    output-file: my-presentation-doc
 ---
+```
+
+This will generate:
+- `my-presentation-slides.pdf` - Presentation slides
+- `my-presentation-doc.pdf` - Document version
+
+If you only want to render one format, you can use the simplified syntax:
+
+```yaml
+format: typst-slides
 ```
 
 **Slide Structure**: In the `typst-slides` format, each level 1 heading (`#`) creates a new slide. Content between headings appears on the same slide. Use level 2 and 3 headings for subsections within slides.
@@ -179,6 +193,53 @@ _extensions/
    - `typst-doc.typ` provides traditional document formatting
 
 3. **Brand Integration**: Both templates read from Quarto's brand.yml system, ensuring consistent typography and colors across formats.
+
+## Troubleshooting
+
+### Only seeing one PDF file
+
+**Problem**: You specified both formats but only see one output PDF.
+
+**Cause**: Both formats produce PDF files, and without different `output-file` names, the second format overwrites the first.
+
+**Solution**: Always specify different `output-file` for each format:
+
+```yaml
+format:
+  typst-slides:
+    output-file: document-slides
+  typst-doc:
+    output-file: document-doc
+```
+
+### Slides rendering as a continuous document
+
+**Problem**: The slides PDF looks like a regular document instead of separate presentation slides.
+
+**Cause**: The Lua filter wraps each section (starting with level 1 heading `#`) in Polylux slide blocks. If you don't have level 1 headings, all content will be on one slide.
+
+**Solution**: Structure your document with level 1 headings (`#`) to create separate slides:
+
+```markdown
+# Introduction
+Content for slide 1...
+
+# Main Points
+Content for slide 2...
+
+# Conclusion
+Content for slide 3...
+```
+
+### Verifying slide generation
+
+To check if slides are being generated correctly, look at the intermediate Typst file:
+
+```bash
+quarto render your-file.qmd --to typst-slides --keep-typ
+```
+
+Then examine the `.typ` file for `#polylux-slide[...]` blocks wrapping your content.
 
 ## Tips
 
