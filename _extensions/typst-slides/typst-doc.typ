@@ -1,3 +1,7 @@
+// QUARTO TEMPLATE FILE
+// This file contains Pandoc template syntax ($if$, $endif$, etc.) that is processed
+// by Quarto before being compiled by Typst. It should not be compiled directly.
+//
 // Typography settings from brand.yml
 $if(brand.typography.base)$
 #let body-font = ("$brand.typography.base$",)
