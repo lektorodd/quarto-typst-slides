@@ -12,7 +12,9 @@ Both formats support conditional content, allowing you to maintain a single sour
 - Generate beautiful PDF slides using Typst and Polylux
 - Create detailed PDF documents from the same source
 - Conditional content blocks (`.slides-only` and `.doc-only`)
-- Full integration with Quarto's `_brand.yml` for typography
+- Full integration with Quarto's `_brand.yml` for typography and colors
+- Comprehensive color palette support with colorblind-friendly defaults
+- Accessible design with WCAG AA contrast compliance
 - Consistent styling across both formats
 - No intermediate LaTeX or HTML steps
 
@@ -79,7 +81,7 @@ and [this is document only]{.doc-only}.
 
 ### Brand Integration
 
-Create a `_brand.yml` file in your project root to customize typography:
+Create a `_brand.yml` file in your project root to customize typography and colors:
 
 ```yaml
 typography:
@@ -96,11 +98,33 @@ typography:
   monospace: JetBrains Mono
 
 color:
-  primary: "#1f77b4"
-  secondary: "#555555"
+  # Primary colors
+  primary: "#008B8B"        # Deep Teal (sophisticated and professional)
+  accent: "#D85A5A"         # Warm Coral (energetic and approachable)
+
+  # Neutral palette
+  neutral:
+    900: "#1A1D23"          # Primary text, headings
+    800: "#2C3038"          # Secondary headings, code
+    600: "#555B68"          # Body text, captions
+    500: "#6E7481"          # Muted text
+    50: "#F5F6F8"           # Subtle backgrounds
+
+  # Functional colors (colorblind-friendly)
+  link: "#6B46C1"           # Purple for all hyperlinks
+  highlight: "#FBBF24"      # Golden yellow for highlights
+  highlight-bg: "#FEF3C7"   # Pale yellow background
+
+  # Status colors
+  success: "#10B981"        # Green for success
+  warning: "#F59E0B"        # Amber for warnings
+  error: "#DC2626"          # Red for errors
+  info: "#3B82F6"           # Blue for info
 ```
 
 The extension will automatically use these settings for both formats.
+
+**See [brand-guide.md](brand-guide.md) for the complete brand style guide**, including detailed color palettes, usage guidelines, and accessibility information.
 
 ## Rendering
 

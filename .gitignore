@@ -9,7 +9,9 @@
 *.html
 *.docx
 *.pptx
-*.typ
+
+# Ignore .typ output files but not templates in _extensions
+/*.typ
 
 # R
 .Rproj.user
