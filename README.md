@@ -9,6 +9,8 @@ A simple Quarto extension that creates PDF presentation slides using native Typs
 - Level 1 headings (`#`) create title slides (centered, large)
 - Level 2 headings (`##`) create new content slides
 - Level 3 headings (`###`) are subsections within slides
+- Quarto `_brand.yml` integration for fonts and colors
+- Google Fonts support
 - Clean, minimal styling
 
 ## Installation
@@ -111,10 +113,61 @@ The extension uses native Typst with:
 
 ## Customization
 
-You can customize colors and fonts by editing `_extensions/typst-slides/typst-slides.typ`.
+### Using Quarto Brand (Recommended)
 
-Default colors:
+Create a `_brand.yml` file in your project to customize fonts and colors:
+
+```yaml
+typography:
+  fonts:
+    - family: Roboto Slab
+      source: google
+    - family: Source Sans 3
+      source: google
+    - family: JetBrains Mono
+      source: google
+
+  base: Source Sans 3        # Body text
+  headings: Roboto Slab      # Headings
+  monospace: JetBrains Mono  # Code
+
+color:
+  primary: "#008B8B"    # Headings (Deep Teal)
+  accent: "#D85A5A"     # Level 3 headings, subtitle (Warm Coral)
+  foreground: "#1A1D23" # Body text
+  link: "#6B46C1"       # Links (Purple)
+```
+
+The extension automatically uses these settings from your brand file.
+
+### Advanced Color Palette
+
+You can also define a full color palette in `_brand.yml`:
+
+```yaml
+color:
+  palette:
+    deep-teal: "#008B8B"
+    warm-coral: "#D85A5A"
+    neutral-900: "#1A1D23"
+    link-purple: "#6B46C1"
+
+  # Map palette to semantic colors
+  primary: deep-teal
+  accent: warm-coral
+  foreground: neutral-900
+  link: link-purple
+```
+
+See the included `_brand.yml` for a complete example.
+
+### Manual Customization
+
+You can also edit `_extensions/typst-slides/typst-slides.typ` directly.
+
+Default colors (if no brand file):
 - Primary (headings): `#1a5490` (blue)
+- Accent: `#D85A5A` (coral)
 - Text: Black
 - Code background: `#f5f5f5` (light gray)
 

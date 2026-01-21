@@ -1,5 +1,5 @@
-// Simple Typst Slides Template
-// No external dependencies - just native Typst
+// Simple Typst Slides Template with Brand Support
+// Supports Quarto _brand.yml integration
 
 // Configure 16:9 presentation format
 #set page(
@@ -7,10 +7,22 @@
   margin: (x: 2em, y: 2em),
 )
 
+// Font configuration from brand.yml or defaults
+#let body-font = "$if(typography.base)$$typography.base$$else$Liberation Sans$endif$"
+#let heading-font = "$if(typography.headings)$$typography.headings$$else$Liberation Sans$endif$"
+#let mono-font = "$if(typography.monospace)$$typography.monospace$$else$Liberation Mono$endif$"
+
+// Color configuration from brand.yml or defaults
+#let primary-color = rgb("$if(color.primary)$$color.primary$$else$#1a5490$endif$")
+#let accent-color = rgb("$if(color.accent)$$color.accent$$else$$if(color.secondary)$$color.secondary$$else$#D85A5A$endif$$endif$")
+#let text-color = rgb("$if(color.foreground)$$color.foreground$$else$#000000$endif$")
+#let link-color = rgb("$if(color.link)$$color.link$$else$$if(color.primary)$$color.primary$$else$#0066cc$endif$$endif$")
+
 // Basic text settings
 #set text(
   size: 20pt,
-  font: "Liberation Sans",
+  font: body-font,
+  fill: text-color,
 )
 
 #set par(justify: false)
@@ -23,7 +35,8 @@
     text(
       size: 40pt,
       weight: "bold",
-      fill: rgb("#1a5490"),
+      fill: primary-color,
+      font: heading-font,
       it.body
     )
   )
@@ -36,7 +49,8 @@
   text(
     size: 32pt,
     weight: "bold",
-    fill: rgb("#1a5490"),
+    fill: primary-color,
+    font: heading-font,
     it.body
   )
   v(0.5em)
@@ -48,7 +62,8 @@
   text(
     size: 24pt,
     weight: "bold",
-    fill: rgb("#333333"),
+    fill: accent-color,
+    font: heading-font,
     it.body
   )
   v(0.5em)
@@ -60,34 +75,50 @@
   inset: 10pt,
   radius: 4pt,
   width: 100%,
-  text(size: 16pt, it)
+  text(size: 16pt, font: mono-font, it)
+)
+
+// Inline code
+#show raw.where(block: false): it => text(
+  font: mono-font,
+  fill: rgb("#333333"),
+  it
 )
 
 // Links
-#show link: set text(fill: rgb("#0066cc"))
+#show link: set text(fill: link-color)
 
 // Strong/bold text
 #show strong: set text(weight: "bold")
 
+// Lists
+#set list(indent: 1em)
+#set enum(indent: 1em)
+
 // Title slide
 #align(center + horizon)[
   $if(title)$
-  #text(size: 48pt, weight: "bold", fill: rgb("#1a5490"))[$title$]
+  #text(size: 48pt, weight: "bold", fill: primary-color, font: heading-font)[$title$]
   $endif$
 
   $if(subtitle)$
   #v(1em)
-  #text(size: 32pt, fill: rgb("#555555"))[$subtitle$]
+  #text(size: 32pt, fill: accent-color, font: heading-font)[$subtitle$]
   $endif$
 
   $if(author)$
   #v(2em)
-  #text(size: 24pt)[$for(author)$$author$$sep$, $endfor$]
+  #text(size: 24pt, font: body-font)[$for(author)$$author$$sep$, $endfor$]
   $endif$
 
   $if(date)$
   #v(1em)
-  #text(size: 20pt, fill: rgb("#666666"))[$date$]
+  #text(size: 20pt, fill: rgb("#666666"), font: body-font)[$date$]
+  $endif$
+
+  $if(institute)$
+  #v(0.5em)
+  #text(size: 18pt, fill: rgb("#888888"), font: body-font)[$institute$]
   $endif$
 ]
 
