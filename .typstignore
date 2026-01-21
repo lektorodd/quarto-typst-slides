@@ -1,0 +1,3 @@
+# Ignore Quarto template files (they contain Pandoc syntax that Typst LSP can't parse)
+_extensions/typst-slides/typst-doc.typ
+_extensions/typst-slides/typst-slides.typ
