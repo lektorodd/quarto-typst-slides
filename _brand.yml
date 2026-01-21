@@ -12,62 +12,67 @@ typography:
   monospace: JetBrains Mono
 
 color:
-  # Primary — Deep Teal (sophisticated and professional)
-  primary: "#008B8B"
+  # Define the color palette with all brand colors
+  palette:
+    # Primary — Deep Teal (sophisticated and professional)
+    deep-teal: "#008B8B"
+    deep-teal-900: "#004D4D"
+    deep-teal-800: "#006666"
+    deep-teal-700: "#007F7F"
+    deep-teal-300: "#33A3A3"
+    deep-teal-200: "#66BBBB"
+    deep-teal-100: "#99D3D3"
+    deep-teal-50: "#CCE9E9"
 
-  # Accent — Warm Coral (energetic and approachable)
-  accent: "#D85A5A"
+    # Accent — Warm Coral (energetic and approachable)
+    warm-coral: "#D85A5A"
+    warm-coral-900: "#8B3A3A"
+    warm-coral-800: "#A34545"
+    warm-coral-300: "#E07B7B"
+    warm-coral-200: "#E89C9C"
+    warm-coral-100: "#F0BDBD"
+    warm-coral-50: "#F8DEDE"
 
-  # Neutrals — Sophisticated grays
-  neutral:
-    900: "#1A1D23"  # Primary text, headings
-    800: "#2C3038"  # Secondary headings, code
-    700: "#3E434E"  # Strong text
-    600: "#555B68"  # Body text, captions
-    500: "#6E7481"  # Muted text
-    400: "#8B919D"  # Disabled text
-    300: "#A8ADB6"  # Borders
-    200: "#C5C8CF"  # Subtle borders
-    100: "#E2E4E8"  # Light backgrounds
-    50: "#F5F6F8"   # Subtle backgrounds
+    # Neutrals — Sophisticated grays
+    neutral-900: "#1A1D23"  # Primary text, headings
+    neutral-800: "#2C3038"  # Secondary headings, code
+    neutral-700: "#3E434E"  # Strong text
+    neutral-600: "#555B68"  # Body text, captions
+    neutral-500: "#6E7481"  # Muted text
+    neutral-400: "#8B919D"  # Disabled text
+    neutral-300: "#A8ADB6"  # Borders
+    neutral-200: "#C5C8CF"  # Subtle borders
+    neutral-100: "#E2E4E8"  # Light backgrounds
+    neutral-50: "#F5F6F8"   # Subtle backgrounds
 
-  # Primary shades
-  primary-shades:
-    900: "#004D4D"
-    800: "#006666"
-    700: "#007F7F"
-    600: "#008B8B"  # Main primary
-    300: "#33A3A3"
-    200: "#66BBBB"
-    100: "#99D3D3"
-    50: "#CCE9E9"
+    # Link colors
+    link-purple: "#6B46C1"
+    link-purple-dark: "#553C9A"
+    link-purple-light: "#9333EA"
 
-  # Accent shades
-  accent-shades:
-    900: "#8B3A3A"
-    800: "#A34545"
-    600: "#D85A5A"  # Main accent
-    300: "#E07B7B"
-    200: "#E89C9C"
-    100: "#F0BDBD"
-    50: "#F8DEDE"
+    # Highlight colors
+    highlight-yellow: "#FBBF24"
+    highlight-yellow-bg: "#FEF3C7"
 
-  # Functional colors (colorblind-friendly)
-  link: "#6B46C1"           # Purple for all hyperlinks
-  link-hover: "#553C9A"     # Dark purple hover state
-  link-visited: "#9333EA"   # Light purple visited links
+    # Functional colors (colorblind-friendly)
+    success-green: "#10B981"
+    success-green-bg: "#D1FAE5"
+    warning-amber: "#F59E0B"
+    warning-amber-bg: "#FEF3C7"
+    error-red: "#DC2626"
+    error-red-bg: "#FEE2E2"
+    info-blue: "#3B82F6"
+    info-blue-bg: "#DBEAFE"
 
-  highlight: "#FBBF24"      # Golden yellow for highlights
-  highlight-bg: "#FEF3C7"   # Pale yellow background
-
-  success: "#10B981"        # Green for success
-  success-bg: "#D1FAE5"     # Pale green background
-
-  warning: "#F59E0B"        # Amber for warnings
-  warning-bg: "#FEF3C7"     # Pale amber background
-
-  error: "#DC2626"          # Red for errors
-  error-bg: "#FEE2E2"       # Pale red background
-
-  info: "#3B82F6"           # Blue for info
-  info-bg: "#DBEAFE"        # Pale blue background
+  # Map palette colors to semantic theme colors
+  foreground: neutral-900
+  background: neutral-50
+  primary: deep-teal
+  secondary: warm-coral
+  tertiary: neutral-500
+  success: success-green
+  info: info-blue
+  warning: warning-amber
+  danger: error-red
+  light: neutral-50
+  dark: neutral-900
