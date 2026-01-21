@@ -1,0 +1,46 @@
+---
+title: "My Presentation"
+subtitle: "A Simple Slide Deck"
+author: "Your Name"
+date: "2026-01-21"
+format: typst-slides
+---
+
+# Introduction
+
+This is a title slide (level 1 heading)
+
+## First Content Slide
+
+This is content on the first slide.
+
+- Bullet point 1
+- Bullet point 2
+- Bullet point 3
+
+## Second Slide
+
+More content here.
+
+**Bold text** and regular text.
+
+## Code Example
+
+Here's some code:
+
+```python
+def hello():
+    print("Hello, world!")
+```
+
+# Section Two
+
+Another title slide (level 1 heading)
+
+## More Content
+
+Final slide with content.
+
+### Sub-section
+
+Level 3 headings appear within the same slide.
