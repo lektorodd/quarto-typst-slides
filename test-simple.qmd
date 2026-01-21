@@ -2,8 +2,10 @@
 title: "My Presentation"
 author: "Your Name"
 format:
-  typst-slides: default
-  typst-doc: default
+  typst-slides:
+    output-file: test-simple-slides
+  typst-doc:
+    output-file: test-simple-doc
 ---
 
 # Test slide

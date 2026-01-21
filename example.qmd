@@ -5,8 +5,10 @@ author: "Your Name"
 date: "2026-01-21"
 institute: "Your Institution"
 format:
-  typst-slides: default
-  typst-doc: default
+  typst-slides:
+    output-file: example-slides
+  typst-doc:
+    output-file: example-doc
 abstract: |
   This is an example abstract that will appear in the document version
   but not in the slides. It provides a summary of the content.
